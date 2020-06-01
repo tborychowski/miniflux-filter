@@ -30,3 +30,4 @@ function filter () {
 }
 
 setInterval(filter, (CHECK_EVERY_S || 3) * 1000);
+filter();
