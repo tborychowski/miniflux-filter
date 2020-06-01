@@ -8,18 +8,19 @@ This project "happened" out of frustrations with my RSS feeds posting more and m
 version: '3'
 services:
   miniflux-filter:
-  image: tborychowski/miniflux-filter
-  container_name: miniflux-filter
-  restart: unless-stopped
-  environment:
-    - HOST=https://rss.domain.tld
-    - API_KEY=<asdASD123>
-    - CHECK_EVERY_S=300 # 300 seconds = 5 min
-  ports:
-    - "3000:3000"
-  volumes:
-    #- ./logs:/app/logs
-    - ./filters.yml:/app/filters.yml
+    image: tborychowski/miniflux-filter
+    container_name: miniflux-filter
+    restart: unless-stopped
+    environment:
+      - HOST=https://rss.domain.tld
+      - API_KEY=<asdASD123>
+      - CHECK_EVERY_S=300 # 300 seconds = 5 min
+    ports:
+      - "3000:3000"
+    volumes:
+      #- ./logs:/app/logs
+      - ./filters.yml:/app/filters.yml
+
 ```
 
 ## Filters

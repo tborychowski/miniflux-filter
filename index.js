@@ -1,8 +1,8 @@
 require('dotenv').config();
 const {Miniflux, match, logger} = require('./lib');
-const {M_HOST, M_API_KEY, M_CHECK_EVERY_S} = process.env;
+const {HOST, API_KEY, CHECK_EVERY_S} = process.env;
 const filtersPath = __dirname + '/filters.yml';
-const mini = new Miniflux(M_HOST, M_API_KEY, filtersPath);
+const mini = new Miniflux(HOST, API_KEY, filtersPath);
 
 function filter () {
 	logger.info('Checking filters...');
@@ -29,4 +29,4 @@ function filter () {
 		.catch(e => logger.error(e));
 }
 
-setInterval(filter, (M_CHECK_EVERY_S || 3) * 1000);
+setInterval(filter, (CHECK_EVERY_S || 3) * 1000);
