@@ -1,3 +1,7 @@
 filters:
-  - url: 'dobreprogramy.pl'
+  - url: 'my-rss-url.com'
     title: 'windows 10'
+  - url: 'my-rss-url2.com'
+    title: '[sponsored]'
+  - url: 'my-rss-url2.com'
+    title: '[spam]'
