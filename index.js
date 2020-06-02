@@ -16,7 +16,7 @@ function filter () {
 		})
 		.then(matched => {
 			const l = matched.length;
-			if (!l) return logger.info('- No items to filter out.');
+			if (!l) return logger.info('No items to filter out.');
 			logger.info(`${l} item${l > 1 ? 's' : ''} to filter out`);
 			logger.info(JSON.stringify(matched));
 
@@ -26,7 +26,7 @@ function filter () {
 		.then(res => {
 			if (!res) logger.error('Could not mark as read.');
 		})
-		.catch(e => logger.error(e));
+		.catch(e => logger.error(e.toString()));
 }
 
 setInterval(filter, (CHECK_EVERY_S || 3) * 1000);
