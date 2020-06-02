@@ -1,7 +1,7 @@
 {
 	"name": "miniflux-filter",
 	"description": "Filter for miniflux - 'mark as read' all unwanter articles.",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"license": "GPL-3.0-or-later",
 	"repository": {
 		"type": "git",
@@ -13,5 +13,13 @@
 		"winston": "^3.2.1",
 		"winston-daily-rotate-file": "^4.4.2",
 		"yaml": "^1.10.0"
+	},
+	"devDependencies": {
+		"chalk": "^4.0.0",
+		"detect-indent": "^6.0.0",
+		"inquirer": "^7.1.0",
+		"ora": "^4.0.4",
+		"semver": "^7.3.2",
+		"simple-git": "^2.5.0"
 	}
 }
