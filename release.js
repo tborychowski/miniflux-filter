@@ -19,7 +19,7 @@ const faker = arg => new Promise(resolve => setTimeout(() => resolve(arg), 2000)
 function run (cmd) {
 	if (dryrun) return faker();
 	return new Promise((resolve, reject) => {
-		exec(cmd, (err, out) => (err ? reject(err) : resolve(out)));
+		exec(cmd, (err, out, stderr) => (err || stderr ? reject('' + (err || stderr)) : resolve(out)));
 	});
 }
 
@@ -65,6 +65,7 @@ function commit (version) {
 function release () {
 	const app = getVersion();
 	APP.name = app.name;
+	APP.currentVersion = app.current;
 	let spinner;
 	console.log('\n**************************************');
 	console.log('*                                    *');
@@ -100,6 +101,9 @@ function release () {
 		.then(({version}) => {
 			APP.version = version;
 			spinner = ora('').start();
+
+			if (APP.version === APP.currentVersion) return Promise.resolve();
+
 			// update package & manifest
 			manifests.forEach(m => {
 				spinner.text = `Updating ${m}...`;
@@ -112,8 +116,10 @@ function release () {
 			return commit(version);              // commit code changes to  github
 		})
 		.then(() => {
-			spinner.text = `Update ${chalk.cyan('pushed')} to Github.`;
-			spinner.succeed();
+			if (APP.version !== APP.currentVersion) {
+				spinner.text = `Update ${chalk.cyan('pushed')} to Github.`;
+				spinner.succeed();
+			}
 
 			spinner.text = 'Building a docker image...';
 			spinner.start();
@@ -139,7 +145,7 @@ function release () {
 			process.exit(0);
 		})
 		.catch(e => {
-			spinner.text = e;
+			spinner.text = e.toString();
 			spinner.fail();
 		});
 }

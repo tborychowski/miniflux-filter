@@ -1,12 +1,13 @@
 node_modules
 .git
-
+.DS_Store
 npm-debug.log
+release.js
+
 Dockerfile
 docker-compose.yml
 .dockerignore
+
 .env
 filters.yml
 *.md
-
-.DS_Store
