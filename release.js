@@ -68,7 +68,7 @@ function release () {
 	let spinner;
 	console.log('\n**************************************');
 	console.log('*                                    *');
-	console.log(`*      Releasing ${chalk.cyan(APP.name)}        *`);
+	console.log(`*     Releasing ${chalk.cyan(APP.name)}      *`);
 	console.log('*                                    *');
 	console.log('**************************************\n');
 	inquirer
