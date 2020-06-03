@@ -1,7 +1,7 @@
 {
 	"name": "miniflux-filter",
 	"description": "Filter for miniflux - 'mark as read' all unwanter articles.",
-	"version": "1.0.4",
+	"version": "1.1.0",
 	"license": "GPL-3.0-or-later",
 	"repository": {
 		"type": "git",
