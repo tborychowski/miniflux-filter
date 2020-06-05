@@ -14,7 +14,7 @@ services:
     environment:
       - HOST=https://rss.domain.tld
       - API_KEY=<asdASD123>
-	  - CHECK_EVERY_S=300 # 300 seconds = 5 min
+      - CHECK_EVERY_S=300 # 300 seconds = 5 min
       - SLACK_HOOK=https://hooks.slack.com/services/123...
     volumes:
       #- ./logs:/app/logs
