@@ -34,8 +34,7 @@ filters:
 ```
 If an item is "matched", i.e.:
 - url of the article, rss feed or the site includes the one from the filter
-- AND article's title includes the filter `title`
-Such an article is marked as read.
+- AND article's title includes the filter `title` - such an article is marked as read
 - If you provide a `SLACK_HOOK` url, you'll also get a notification with filtered-out articles and links, just for reference :-)
 
 ## Alternatives
