@@ -1,5 +1,5 @@
 # miniflux filter
-This project "happened" out of frustrations with my RSS feeds posting more and more spam, and the lact of filtering functionality in my favourite rss aggregator - Miniflux.
+This project "happened" out of frustrations with my RSS feeds posting more and more spam, and the lack of filtering functionality in my favourite rss aggregator - Miniflux.
 
 ## Docker
 `docker-compose.yml`
