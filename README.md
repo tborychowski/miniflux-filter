@@ -1,5 +1,5 @@
 # miniflux filter
-This project "happened" out of frustrations with my RSS feeds posting more and more spam, and the lact of filtering functionality in my favourite rss aggregator - Miniflux.
+This project "happened" out of frustrations with my RSS feeds posting more and more spam, and the lack of filtering functionality in my favourite rss aggregator - Miniflux.
 
 ## Docker
 `docker-compose.yml`
@@ -14,7 +14,7 @@ services:
     environment:
       - HOST=https://rss.domain.tld
       - API_KEY=<asdASD123>
-	  - CHECK_EVERY_S=300 # 300 seconds = 5 min
+      - CHECK_EVERY_S=300 # 300 seconds = 5 min
       - SLACK_HOOK=https://hooks.slack.com/services/123...
     volumes:
       #- ./logs:/app/logs
@@ -88,8 +88,7 @@ filters:
 ```
 If an item is "matched", i.e.:
 - url of the article, rss feed or the site includes the one from the filter
-- AND article's title includes the filter `title`
-Such an article is marked as read.
+- AND article's title includes the filter `title` - such an article is marked as read
 - If you provide a `SLACK_HOOK` url, you'll also get a notification with filtered-out articles and links, just for reference :-)
 
 ## Alternatives
