@@ -22,6 +22,60 @@ services:
 
 ```
 
+## No Docker (run locally with node)
+### Pre-requisities
+- [nodejs](https://nodejs.org/en/) installed (preferably the LTS version)
+
+### Steps
+1. Open terminal and `cd` to your preferred directory, then run:
+```sh
+git clone https://github.com/tborychowski/miniflux-filter.git
+cd miniflux-filter
+npm install
+mv .env-sample .env
+```
+2. Then edit `.env` file with your settings (see details below), and run:
+```sh
+node index.js
+```
+
+### How to run it in the background (so you don't have to have terminal open)
+1. Install pm2 (or any alternative node process manager):
+```sh
+npm install pm2 -g
+```
+2. Commands:
+```sh
+# start miniflux-filter
+pm2 start index.js --name miniflux-filter
+
+# list running apps
+pm2 list
+
+# stop miniflux-filter
+pm2 stop miniflux-filter
+
+# delete miniflux-filter from the pm2 list
+pm2 del miniflux-filter
+
+# launch pm2 & apps on boot
+pm2 startup
+
+# remove the launch-on-boot
+pm2 unstartup
+```
+
+## ENV variables
+There are some environmental variables that the `miniflux-filter` needs:
+```sh
+HOST=https://rss.domain.tld           # url to your miniflux instance
+API_KEY=<shB6Zo2ds>                   # API key generated in your miniflux instance
+CHECK_EVERY_S=300                     # Frequency (in seconds) to run the filter
+SLACK_HOOK=https://hooks.slack.com... # [optional] slack webhook URL for notifications
+```
+
+
+
 ## Filters
 Create `filters.yml` file (or copy the attached one).
 Format is very simple:
