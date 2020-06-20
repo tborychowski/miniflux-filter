@@ -39,7 +39,7 @@ mv .env-sample .env
 node index.js
 ```
 
-### How to run it in the background (so you don't have to have terminal open)
+### How to run it in the background (so you don't have to keep terminal open)
 1. Install pm2 (or any alternative node process manager):
 ```sh
 npm install pm2 -g
