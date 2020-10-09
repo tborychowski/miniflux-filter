@@ -2,6 +2,7 @@ node_modules/
 logs/
 
 .env
+filters.yml
 
 .DS_Store
 notes.md
