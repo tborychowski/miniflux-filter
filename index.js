@@ -1,11 +1,11 @@
 require('dotenv').config();
 const {Miniflux, logger, slack, match} = require('./lib');
-const {HOST, API_KEY, CHECK_EVERY_S} = process.env;
+const {HOST, API_KEY, CHECK_EVERY_S, LOG_FILTERED_ONLY} = process.env;
 const filtersPath = __dirname + '/filters.yml';
 const mini = new Miniflux(HOST, API_KEY, filtersPath);
 
 function filter () {
-	logger.info('Checking filters...');
+	if (!LOG_FILTERED_ONLY) logger.info('Checking filters...');
 	mini
 		.getEntries()
 		.then(res => {
@@ -15,10 +15,13 @@ function filter () {
 			return res.filter(item => match(item, mini.filters));
 		})
 		.then(matched => {
-			const l = matched.length;
-			if (!l) return logger.info('No items to filter out.');
-			const plural = l > 1 ? 's' : '';
-			logger.info(`${l} item${plural} to filter out`);
+			const count = matched.length;
+			if (!count) {
+				if (!LOG_FILTERED_ONLY) logger.info('No items to filter out.');
+				return true;
+			}
+			const plural = count > 1 ? 's' : '';
+			logger.info(`${count} item${plural} to filter out`);
 			logger.info(JSON.stringify(matched));
 
 			slack(matched);

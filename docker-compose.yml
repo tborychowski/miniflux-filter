@@ -9,7 +9,8 @@ services:
       - TZ=Europe/Dublin
       - HOST=https://rss.domain.tld
       - API_KEY=<asdASD123>
-      - CHECK_EVERY_S=300 # 300 seconds = 5 min
+      - CHECK_EVERY_S=300       # 300 seconds = 5 min
+      - LOG_FILTERED_ONLY=false # 'true' will only log when filtering happens
     volumes:
       #- ./logs:/app/logs
       - ./filters.yml:/app/filters.yml
