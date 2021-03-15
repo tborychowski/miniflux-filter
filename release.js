@@ -125,7 +125,8 @@ function release () {
 			spinner.start();
 			const tagLatest = `tborychowski/${APP.name}:latest`;
 			const tagVersion = `tborychowski/${APP.name}:${APP.version}`;
-			return run(`docker build --no-cache -t ${tagLatest} -t ${tagVersion} .`);
+			return run(`docker build --no-cache -t ${tagLatest} -t ${tagVersion} .`)
+				.catch(() => {});
 		})
 		.then(() => {
 			spinner.text = 'Built a ' + chalk.cyan('docker image');
