@@ -3,9 +3,10 @@ const {Miniflux, logger, slack, match} = require('./lib');
 const {HOST, API_KEY, CHECK_EVERY_S, LOG_FILTERED_ONLY} = process.env;
 const filtersPath = __dirname + '/filters.yml';
 const mini = new Miniflux(HOST, API_KEY, filtersPath);
+const logFilteredOnly = LOG_FILTERED_ONLY === 'true';
 
 function filter () {
-	if (!LOG_FILTERED_ONLY) logger.info('Checking filters...');
+	if (!logFilteredOnly) logger.info('Checking filters...');
 	mini
 		.getEntries()
 		.then(res => {
@@ -17,7 +18,7 @@ function filter () {
 		.then(matched => {
 			const count = matched.length;
 			if (!count) {
-				if (!LOG_FILTERED_ONLY) logger.info('No items to filter out.');
+				if (!logFilteredOnly) logger.info('No items to filter out.');
 				return true;
 			}
 			const plural = count > 1 ? 's' : '';

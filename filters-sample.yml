@@ -1,6 +1,8 @@
 filters:
   - url: 'my-rss-url.com'
     title: 'windows 10'
+  - url: 'my-rss-url.com'
+    content: 'Windows 10'
   - url: 'my-rss-url2.com'
     title: '[sponsored]'
   - url: 'my-rss-url2.com'
