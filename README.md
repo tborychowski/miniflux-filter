@@ -83,6 +83,8 @@ Format is very simple:
 filters:
   - url: 'my-rss-url.com'  # matches url of the article, rss feed, or the site
     title: 'windows 10'    # a keyword of a phrase to look for in articles' titles
+  - url: 'my-rss-url.com'  # matches url of the article, rss feed, or the site
+    content: 'windows 10'  # a keyword of a phrase to look for in articles' body/content section
   - url: 'my-rss-url.com'  # same url can be repeated with different filters
     title: '[sponsored]'   # there's just one keyword per 1 filter item
 ```
