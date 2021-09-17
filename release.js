@@ -123,8 +123,8 @@ function release () {
 
 			spinner.text = 'Building a docker image...';
 			spinner.start();
-			const tagLatest = `tborychowski/${APP.name}:latest`;
-			const tagVersion = `tborychowski/${APP.name}:${APP.version}`;
+			const tagLatest = `ghcr.io/tborychowski/${APP.name}:latest`;
+			const tagVersion = `ghcr.io/tborychowski/${APP.name}:${APP.version}`;
 			return run(`docker build --no-cache -t ${tagLatest} -t ${tagVersion} .`)
 				.catch(() => {});
 		})
@@ -135,8 +135,8 @@ function release () {
 			spinner.text = 'Pushing images to the docker hub...';
 			spinner.start();
 
-			const cmd = `docker push tborychowski/${APP.name}:latest && ` +
-				`docker push tborychowski/${APP.name}:${APP.version}`;
+			const cmd = `docker push ghcr.io/tborychowski/${APP.name}:latest && ` +
+				`docker push ghcr.io/tborychowski/${APP.name}:${APP.version}`;
 			return run(cmd).catch(() => {});
 		})
 		.then(() => {

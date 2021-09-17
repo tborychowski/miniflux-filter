@@ -8,7 +8,7 @@ This project "happened" out of frustrations with my RSS feeds posting more and m
 version: '3'
 services:
   miniflux-filter:
-    image: tborychowski/miniflux-filter
+    image: ghcr.io/tborychowski/miniflux-filter
     container_name: miniflux-filter
     restart: unless-stopped
     environment:
