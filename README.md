@@ -6,22 +6,22 @@ Miniflux Filter
 
 ```yml
 ---
-	version: '3'
-	services:
-	  miniflux-filter:
-	    image: tborychowski/miniflux-filter:latest
-	    container_name: miniflux-filter
-	    restart: unless-stopped
-	    environment:
-	      - TZ=Europe/Dublin
-	      # if not present - there will be no auth
-	      # - ADMIN_PASSWORD=admin1
-	      # ERROR, WARNING, INFO, DEBUG
-	      - LOG_LEVEL=INFO
-	    ports:
-	      - "5020:80"
-	    volumes:
-	      - ./data:/var/www/html/store
+    version: '3'
+    services:
+      miniflux-filter:
+        image: tborychowski/miniflux-filter:latest
+        container_name: miniflux-filter
+        restart: unless-stopped
+        environment:
+          - TZ=Europe/Dublin
+          # if not present - there will be no auth
+          # - ADMIN_PASSWORD=admin1
+          # ERROR, WARNING, INFO, DEBUG
+          - LOG_LEVEL=INFO
+        ports:
+          - "5020:80"
+        volumes:
+          - ./data:/var/www/html/store
 ```
 2. Run `docker-compose up -d`
 
