@@ -1,7 +1,9 @@
 Miniflux Filter
 ==================
+This project "happened" out of frustrations with my RSS feeds posting more and more spam, and the ~~lack of~~ very limited filtering functionality in my favourite rss aggregator - Miniflux.
 
-# Setup
+
+# Setup with Docker
 1. Create a `docker-compose.yml` with the following content
 
 ```yml
@@ -24,6 +26,8 @@ services:
         - ./data:/var/www/html/store
 ```
 2. Run `docker-compose up -d`
+3. Open `<serverIP>:5020`
+
 
 # TODO
 - [x] filter create date/update date
@@ -60,3 +64,8 @@ services:
 - [ ] allow to filter all feeds (add `*` to feed list)
 - [ ] sqlite db?
 - [ ] preview
+
+
+## Alternatives
+- https://github.com/uggedal/cfg/blob/master/templates/opt/fluxfilter/bin/fluxfilter
+- https://github.com/dewey/miniflux-sidekick
