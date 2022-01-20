@@ -5,7 +5,7 @@
 	<h1>Filters</h1>
 	<ul>
 		<li><a href="filters">Filters</a></li>
-		<!-- <li><a href="action-filters-run">Run in background</a></li> -->
+		<!-- <li><a href="filter-job.php">Run in background</a></li> -->
 		<li><a href="#"
 			data-confirm="true"
 			data-action="remove-feed"

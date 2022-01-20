@@ -13,7 +13,7 @@
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		addFilter($filters, $_POST, $feeds);
-		header('Location: action-filters-run');
+		header('Location: filter-job.php');
 	}
 
 	require_once 'filters-menu.php';

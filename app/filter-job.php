@@ -1,4 +1,5 @@
 <?php
+ob_start();
 
 require_once 'lib/utils.php';
 require_once 'lib/logger.php';
@@ -25,14 +26,16 @@ $logger->touch();
 $filters = getFilters();
 if (empty($filters)) {
 	$logger->warning('You have not defined any filters.');
-	exit(0);
+	if (!is_cli()) header('location: filters');
+	else exit(0);
 }
 
 $m = new Miniflux($settings);
 $unread = $m->getUnread();
 if (empty($unread)) {
 	$logger->info('There are no unread articles to filter.');
-	exit(0);
+	if (!is_cli()) header('location: filters');
+	else exit(0);
 }
 
 $logger->debug('Checking filters...');
@@ -46,3 +49,6 @@ $count = $m->markAsRead($ids_to_filter);
 if ($count > 0) $logger->success('Marked ' . $count . ' article' . ($count > 1 ? 's' : '') . ' as read.');
 
 $logger->debug('Checking filters...finished!');
+
+if (!is_cli()) header('location: filters');
+ob_end_flush();
