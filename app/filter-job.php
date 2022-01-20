@@ -23,13 +23,19 @@ if (is_cli()) {
 $logger->touch();
 
 $filters = getFilters();
-if (empty($filters)) die('You have not defined any filters.');
+if (empty($filters)) {
+	$logger->warning('You have not defined any filters.');
+	exit(0);
+}
 
 $m = new Miniflux($settings);
 $unread = $m->getUnread();
-if (empty($unread)) die('There are no unread articles to filter.');
+if (empty($unread)) {
+	$logger->info('There are no unread articles to filter.');
+	exit(0);
+}
 
-$logger->info('Checking filters...');
+$logger->debug('Checking filters...');
 
 $ids_to_filter = [];
 foreach ($unread as $article) {
@@ -38,3 +44,5 @@ foreach ($unread as $article) {
 
 $count = $m->markAsRead($ids_to_filter);
 if ($count > 0) $logger->success('Marked ' . $count . ' article' . ($count > 1 ? 's' : '') . ' as read.');
+
+$logger->debug('Checking filters...finished!');

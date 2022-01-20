@@ -11,7 +11,11 @@ class Miniflux {
 	function __construct ($settings) {
 		$this->url = trim($settings['url'], '/') . '/v1';
 		$this->token = $settings['token'];
-		$this->headers = [ 'Content-type: application/json', "X-Auth-Token: $this->token" ];
+		$this->headers = [
+			'Content-type: application/json',
+			'Cache-Control: no-cache',
+			'X-Auth-Token: ' . $this->token,
+		];
 	}
 
 
