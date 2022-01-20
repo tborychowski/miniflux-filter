@@ -16,7 +16,7 @@
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$was_changed = updateFilter($filters, $_POST, $feeds, $id);
-		if ($was_changed) header('Location: filter-job.php');
+		if ($was_changed) header('Location: action-filters-run');
 		else header('Location: filters');
 	}
 

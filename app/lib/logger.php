@@ -17,7 +17,7 @@ class Logger {
 	private $date_format;
 	private $log_file;
 
-	function __construct ($log_level = LOG_LEVEL::INFO, $path = 'store/filters.log', $format = 'Y-m-d G:i') {
+	function __construct ($log_level = LOG_LEVEL::INFO, $path = 'store/filters.log', $format = 'Y-m-d G:i:s') {
 		if (getenv('LOG_LEVEL')) {
 			$lvl = strtoupper(getenv('LOG_LEVEL'));
 			$log_level = constant("LOG_LEVEL::$lvl");

@@ -6,7 +6,7 @@
 		<li><a href="export.php">Export</a></li>
 		<li><a href="filters-import">Import</a></li>
 		<li><a href="action-reload-feeds">Reload feeds</a></li>
-		<li><a href="filter-job.php">Run all filters in background</a></li>
+		<li><a href="action-filters-run">Run all filters in background</a></li>
 	</ul>
 </section>
 

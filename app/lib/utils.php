@@ -1,5 +1,9 @@
 <?php
 
+function is_run_in_background () {
+	return count(array_intersect($_SERVER['argv'], ['-b', '--background'])) > 0;
+}
+
 function is_cli () {
 	return php_sapi_name() == 'cli';
 }
