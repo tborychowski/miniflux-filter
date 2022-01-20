@@ -30,7 +30,7 @@ class Logger {
 	public function last_log_time () {
 		if (!file_exists($this->log_file)) return 'never';
 		$log_file_time = filemtime($this->log_file);
-		$log_file_datetime = date($this->date_format, $log_file_time);
+		$log_file_datetime = date('Y-m-d G:i:s', $log_file_time);
 		return time_ago($log_file_datetime);
 	}
 
