@@ -7,6 +7,8 @@ require_once 'lib/actions.php';
 requiresAuth();
 
 if (getPath() == 'logout') return logout();
+define('BASE_URL', rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/');
+
 
 require('inc/header.php');
 require('inc/nav.php');
