@@ -2,6 +2,7 @@ Miniflux Filter
 ==================
 This project "happened" out of frustrations with my RSS feeds posting more and more spam, and the ~~lack of~~ very limited filtering functionality in my favourite rss aggregator - Miniflux.
 
+![Screenshot](screen.png)
 
 # Setup with Docker
 1. Create a `docker-compose.yml` with the following content
