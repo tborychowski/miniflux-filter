@@ -10,7 +10,7 @@ services:
       # if not present - there will be no auth
       # - ADMIN_PASSWORD=admin1
       # ERROR, WARNING, INFO, DEBUG
-      - LOG_LEVEL=INFO
+      - LOG_LEVEL=DEBUG
     ports:
       - "5020:80"
     volumes:
